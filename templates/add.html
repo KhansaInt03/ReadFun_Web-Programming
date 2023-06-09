@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block judul %} Add NEWS {% endblock %}</title>
+</head>
+<body>
+    {% block JudulBerita %} Add Today's NEWS {% endblock %}
+
+    {% block konten %}
+    <div class="formadd">
+        <form action='{{ url_for("add_processing")}}' method="post">
+            <div class="inputtitle">
+                <label for="title">Tittle</label>
+                <textarea class="title" type="text" name="title" placeholder="Your Title" cols="80" maxlength="65" required></textarea>
+            <div class="inputcontent">
+                <label for="content">Content</label>
+                <textarea name="content" placeholder="Your Content" required cols="80" rows="10" aria-placeholder="Your's content"></textarea>
+            </div>
+            <div class="author">
+                <label for="author">Author</label>
+                <input type="text" name="author" placeholder="Your Name or Initial" required>
+            </div>
+            <button class="submit" type="submit" onclick="return ('Your story is alread uploaded!!!')">Upload</button>
+            <button class="reset" type="reset">Cancel</button>
+        </form>
+    </div>
+    {% endblock %}
+    
+</body>
+</html>

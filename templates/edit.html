@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block judul %} ReadFun's Edit Page {% endblock %}</title>
+</head>
+<body>
+
+    {% block JudulBerita %}Your's Edit Page{% endblock %}
+
+    {% block konten %}
+
+    {% for column in hasil %}
+    <div class="formadd">
+        <form action='{{ url_for("change_processing")}}' method="post">
+            <div class="inputtitle">
+                <label for="title">Tittle</label>
+                <input type="hidden" name="title_ori" value={{column.2}}>
+                <textarea type="text" name="title_n" placeholder="Your Title" maxlength="65" required>{{column.2}}</textarea>
+            <div class="inputcontent">
+                <label for="content">Content</label>
+                <textarea type="text" name="content_n" placeholder="Your content" cols="80" rows="10">{{column.3}}</textarea>
+            </div>
+            <button class="change" type="submit">Change</button>
+            <button class="reset" type="reset">Cancel</button>
+        </form>
+    </div>
+    {% endfor %}
+
+    {% endblock %}
+</body>
+</html>

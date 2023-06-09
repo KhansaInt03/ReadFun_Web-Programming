@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block judul %} ReadFun's Admin's Dashboard {% endblock %}</title>
+</head>
+<body>
+
+    {% block JudulBerita %} Your Dashboard {% endblock %}
+
+    {% block konten %}
+    <div class="wrapper-dash">
+            {% for column in hasil %}
+                <p><h1 style="color: #7A0BC0;">{{column.2}}</h1><br>
+                Date : {{column.1}}    |  Author : {{column.4}}</p><br>
+                <button><a href="/edit/{{column.2}}" class="ubah">Edit</a></button>
+                <button><a href="/del/{{column.2}}"  class="hapus" onclick="return confirm('Are you sure you want to delete : {{column.2}} ?')">Delete</a></button>
+                <br><br><br>
+            {% endfor %}
+    </div>
+    <div class="add">
+        <p>Do you have new story or NEWS???</p>
+        <button><a href="/add/">Add right now!!!</a></button>
+    </div>
+    {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block judul %} ReadFun's Reading Page {% endblock %}</title>
+</head>
+<body>
+
+    {% block JudulBerita %} Reading Page {% endblock %}
+
+    {% block konten %}
+    <div class="wrapper-read">
+                {% for column in hasil %}
+                    <h1>{{column.2}}</h1>
+                    <p class="decor">Date : {{column.1}} | Author : {{column.4}}</p>
+                    <p>{{column.3}}</p>
+                {% endfor %}
+    {% endblock %}
+    </div>
+</body>
+</html>
